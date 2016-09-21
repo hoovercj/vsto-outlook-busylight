@@ -11,8 +11,12 @@ So I made two seperate projects. The first is the tool I wish someone had made b
 I get email alerts about the status of my check-ins, so the second project is a [VSTO Add-In](https://msdn.microsoft.com/en-us/library/ms268878.aspx) for Outlook. VSTO stands for "Visual Studio Tools for Office" and is a type of .NET add-in that installs on your system and boots with your office product. This is different than the newer ["Office Add-Ins Platform"](http://dev.office.com/docs/add-ins/overview/office-add-ins) built with javascript/html/css. The add-in is very simple and is based on [this msdn article](https://msdn.microsoft.com/en-us/library/cc668191.aspx).
 
 The main steps are:
-1. Create a Visual Studio project from a VSTO template.
-2. Call your code from the events or hooks that the template exposes in `ThisAddIn.cs`. A simple version of the code needed for my add-in is below.
+
+* Create a Visual Studio project from a VSTO template.
+* Call your code from the events or hooks that the template exposes in `ThisAddIn.cs`. A simple version of the code needed for my add-in is below.
+* Create and use a [Click-Once installer](https://msdn.microsoft.com/en-us/library/bb772100.aspx) for the add-in
+* Annoy your teammates with a singing success-light! Or embarrass yourself with a singing shame-light...
+
 ```csharp
 // Template method filled with my code
 void items_ItemAdd(object Item)
@@ -37,8 +41,6 @@ void items_ItemAdd(object Item)
     sdk.Light(BusylightColor.Off);
 }
 ```
-3. Create and use a [Click-Once installer](https://msdn.microsoft.com/en-us/library/bb772100.aspx) for the add-in
-4. Annoy your teammates with a singing success-light! Or embarrass yourself with a singing shame-light...
 
 Feel free to leave a comment in the [issues](https://github.com/hoovercj/vsto-outlook-busylight/issues) session if you have any questions.
 
